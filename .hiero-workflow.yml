@@ -1,0 +1,49 @@
+# .hiero-workflow.yml
+# Place this file in the root of your repository to enable the Hiero Workflow App.
+# Each feature can be turned on or off independently.
+# Repos that do NOT have this file will be completely ignored by the bot.
+
+# ─── ONBOARDING ──────────────────────────────────────────────────────────────
+onboarding:
+  enabled: true
+  human_check: true              # Detect and flag bot accounts
+  auto_assign_mentor: true       # Assign a mentor to new contributors
+  mentor_team: "mentors"         # GitHub team slug to pick mentors from
+
+# ─── ISSUE ASSIGNMENT ────────────────────────────────────────────────────────
+issue_assignment:
+  enabled: true
+  trigger_phrase: "I want to work on this"   # Comment phrase to request assignment
+  check_contributions: true                   # Check contributor qualifications first
+  min_contributions: 0                        # Minimum merged PRs needed (0 = anyone)
+  max_assigned_issues: 1                      # Max issues one person can hold at once
+
+# ─── PR QUALITY ──────────────────────────────────────────────────────────────
+pr_quality:
+  enabled: true
+  require_linked_issue: true         # PR must close/fix/resolve an issue
+  require_description: true          # PR must have a meaningful description
+  min_description_length: 50         # Minimum characters in PR description
+  check_dco: true                    # All commits must have Signed-off-by
+
+# ─── STALE MANAGEMENT ────────────────────────────────────────────────────────
+stale:
+  enabled: true
+  days_before_stale: 30              # Days of inactivity before marking stale
+  days_before_close: 7               # Days after stale before closing
+  stale_label: "stale"
+  exempt_labels:                     # These labels will never be marked stale
+    - pinned
+    - security
+    - in-progress
+    - blocked
+
+# ─── DEVELOPER PROGRESSION ───────────────────────────────────────────────────
+progression:
+  enabled: true
+  suggest_next_issue: true           # After a merged PR, suggest the contributor's next issue
+  track_promotions: false            # Track when contributors qualify for promotion (coming soon)
+
+# ─── AI REVIEW (COMING SOON) ─────────────────────────────────────────────────
+ai_review:
+  enabled: false                     # AI-assisted initial PR review (future feature)
